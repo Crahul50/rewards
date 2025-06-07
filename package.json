@@ -4,8 +4,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "shopify": "shopify",
-    "build": "shopify app build",
-    "dev": "shopify app dev",
+    "build": "node api.js && shopify app build",
+    "dev": "node api.js && shopify app dev",
     "push": "shopify app push",
     "generate": "shopify app generate",
     "deploy": "shopify app deploy",
