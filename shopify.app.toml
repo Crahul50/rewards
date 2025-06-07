@@ -1,0 +1,41 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "937846690bf7808caad461351fa1355f"
+application_url = "https://thin-designer-habits-describes.trycloudflare.com"
+embedded = true
+name = "rewards-app"
+handle = "rewards-app-11"
+
+[build]
+include_config_on_deploy = true
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/api/webhooks"
+
+  [[webhooks.subscriptions]]
+  topics = [ "orders/updated" ]
+  uri = "/api/webhooks"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_discounts,read_products,write_products,read_themes,write_themes,read_orders,write_orders,read_customers,read_all_orders,read_discounts,write_customers"
+
+[auth]
+redirect_urls = [
+  "https://thin-designer-habits-describes.trycloudflare.com/auth/callback",
+  "https://thin-designer-habits-describes.trycloudflare.com/auth/shopify/callback",
+  "https://thin-designer-habits-describes.trycloudflare.com/api/auth/callback"
+]
+
+[pos]
+embedded = false
+
+[[extensions]]
+type = "function"
+name = "membership-tier-discount"
+handle = "membership-tier-discount"

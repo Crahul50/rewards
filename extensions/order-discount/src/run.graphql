@@ -1,0 +1,26 @@
+query RunInput {
+  cart {
+    buyerIdentity {
+      customer {
+        id
+        metafield(namespace: "customer_membership_tiers", key: "tier") {
+          value
+        }
+      }
+    }
+    lines {
+      id
+      cost {
+        totalAmount {
+          amount
+          currencyCode
+        }
+      }
+    }
+  }
+  discountNode {
+    metafield(namespace: "default", key: "function-configuration") {
+      value
+    }
+  }
+}
